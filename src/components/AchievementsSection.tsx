@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Trophy, Medal, Certificate, ArrowUpRight, X, GraduationCap } from "@phosphor-icons/react";
+import { Trophy, Medal, Certificate, ArrowUpRight, X, GraduationCap, File } from "@phosphor-icons/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,12 +16,12 @@ const achievements = [
 ];
 
 const certifications = [
-  "Oracle Cloud AI Foundations Associate",
-  "Oracle Data Science Professional",
-  "Oracle AI Vector Search Professional",
-  "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
-  "JLPT N5 – Japanese Language",
-  "Cloud Computing",
+  { name: "Oracle Cloud AI Foundations Associate", organization: "Oracle", issuedDate: "2025", url: "https://ik.imagekit.io/ulajgq5pme/Oracle%20Cloud%20Infrastructure%202025%20Certified%20Al%20Foundations%20Associate.jpg" },
+  { name: "Oracle Data Science Professional", organization: "Oracle", issuedDate: "2025", url:"https://ik.imagekit.io/ulajgq5pme/Oracle%20Cloud%20Infrastructure%202025%20Certified%20Data%20Science%20Professional.jpg" },
+  { name: "Oracle AI Vector Search Professional", organization: "Oracle", issuedDate: "2025", url: "https://ik.imagekit.io/ulajgq5pme/Oracle%20AI%20Vector%20Search%20Certified%20Professional.jpg" },
+  { name: "Oracle Generative AI Professional.jpg", organization: "Oracle", issuedDate: "2025", url: "https://ik.imagekit.io/ulajgq5pme/Oracle%20Cloud%20Infrastructure%202025%20Certified%20Generative%20AI%20Professional.jpg" },
+  { name: "JLPT N5 – Japanese Language", organization: "Japan Language Proficiency Test", issuedDate: "2024", url: "https://ik.imagekit.io/ulajgq5pme/JLPT%20N5%20-%20Japanese%20Language%20Proficiency%20Test.jpg" },
+  { name: "NPTEL Cloud Computing", organization: "NPTEL", issuedDate: "2025", url: "https://ik.imagekit.io/ulajgq5pme/nptel-cloud%20computing.jpg" },
 ];
 
 const education = [
@@ -32,6 +32,8 @@ const education = [
 const AchievementsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [selected, setSelected] = useState<number | null>(null);
+  const [selectedCert, setSelectedCert] = useState<number | null>(null);
+  const [viewingCertImage, setViewingCertImage] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -105,9 +107,13 @@ const AchievementsSection = () => {
             Certifications
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {certifications.map((cert) => (
-              <div key={cert} className="cert-item glass-card px-4 py-3 text-sm text-muted-foreground font-light hover:text-foreground hover:border-primary/30 transition-all duration-300">
-                {cert}
+            {certifications.map((cert, i) => (
+              <div key={i} className="cert-item glass-card px-4 py-3 text-sm text-muted-foreground font-light hover:border-primary/30 transition-all duration-300 cursor-pointer group" onClick={() => setSelectedCert(i)}>
+                <p className="text-foreground font-medium text-sm">{cert.name}</p>
+                <p className="text-xs text-primary/80 mt-1">{cert.organization}</p>
+                <div className="flex items-center gap-1 mt-2 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  View details <ArrowUpRight size={12} />
+                </div>
               </div>
             ))}
           </div>
@@ -133,6 +139,47 @@ const AchievementsSection = () => {
                 <p className="text-sm text-muted-foreground font-light">{achievements[selected].team}</p>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Certification details modal */}
+      {selectedCert !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-xl" onClick={() => setSelectedCert(null)}>
+          <div className="glass-card max-w-lg w-full p-8 relative" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setSelectedCert(null)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"><X size={20} /></button>
+            <Certificate size={28} weight="light" className="text-primary mb-4" />
+            <h3 className="text-xl font-bold text-foreground mb-2">{certifications[selectedCert].name}</h3>
+            <p className="text-sm text-primary/80 mb-1">{certifications[selectedCert].organization}</p>
+            <p className="text-xs text-muted-foreground mb-6">Issued: {certifications[selectedCert].issuedDate}</p>
+            {certifications[selectedCert].url && (
+              <button
+                onClick={() => setViewingCertImage(true)}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 rounded-lg text-primary text-sm font-light transition-colors duration-300"
+              >
+                <File size={16} />
+                View Certificate
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Certificate image modal */}
+      {viewingCertImage && selectedCert !== null && certifications[selectedCert].url && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-background/80 backdrop-blur-xl" onClick={() => setViewingCertImage(false)}>
+          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setViewingCertImage(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors bg-background/80 backdrop-blur rounded-full p-2 z-10"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={certifications[selectedCert].url}
+              alt="Certificate"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
           </div>
         </div>
       )}

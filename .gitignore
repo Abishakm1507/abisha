@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Ignore all .env files
+.env
+.env.local
+
+EMAILJS_SETUP.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Briefcase, ArrowUpRight, X } from "@phosphor-icons/react";
+import { Briefcase, ArrowUpRight, X, File } from "@phosphor-icons/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,6 +10,7 @@ const experiences = [
     role: "Full Stack Developer Intern",
     company: "Impacteers, Chennai",
     period: "May 2025 – Jul 2025",
+    certificate: "https://ik.imagekit.io/ulajgq5pme/internship-1.jpg",
     highlights: [
       "Built a real-time chat application using React, Next.js, Node.js, PostgreSQL, and WebSocket",
       "Implemented JWT authentication with role-based authorization",
@@ -22,6 +23,7 @@ const experiences = [
     role: "AI Engineer",
     company: "TechSaksham",
     period: "Dec 2024 – Jan 2025",
+    certificate: "https://ik.imagekit.io/ulajgq5pme/internship-2.jpg",
     highlights: [
       "Developed CNN-based Plant Disease Detection system achieving 97% accuracy",
       "Applied image preprocessing and augmentation techniques",
@@ -33,6 +35,7 @@ const experiences = [
     role: "Full Stack Developer Intern",
     company: "Bharat Intern",
     period: "Aug 2024 – Sep 2024",
+    certificate: "https://ik.imagekit.io/ulajgq5pme/internship-3.jpg",
     highlights: [
       "Built secure web applications using HTML, CSS, JavaScript, Node.js, and MongoDB",
       "Created a registration system and personal finance tracker",
@@ -45,6 +48,7 @@ const experiences = [
 const ExperienceSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [selected, setSelected] = useState<number | null>(null);
+  const [viewingCertificate, setViewingCertificate] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -116,13 +120,48 @@ const ExperienceSection = () => {
             <p className="text-xs text-muted-foreground mb-4">{experiences[selected].period}</p>
             <p className="text-sm text-muted-foreground font-light leading-relaxed mb-4">{experiences[selected].details}</p>
             <h4 className="text-sm font-semibold text-foreground mb-2">Key Contributions</h4>
-            <ul className="space-y-1.5">
+            <ul className="space-y-1.5 mb-6">
               {experiences[selected].highlights.map((h, j) => (
                 <li key={j} className="text-sm text-muted-foreground font-light flex items-start gap-2">
                   <span className="text-primary mt-1.5 text-[6px]">●</span>{h}
                 </li>
               ))}
             </ul>
+            {experiences[selected].certificate && (
+              <button
+                onClick={() => setViewingCertificate(true)}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 rounded-lg text-primary text-sm font-light transition-colors duration-300"
+              >
+                <File size={16} />
+                View Certificate
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Certificate viewing modal */}
+      {viewingCertificate && selected !== null && experiences[selected].certificate && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-background/90 backdrop-blur-xl overflow-auto"
+          onClick={() => setViewingCertificate(false)}
+        >
+          <div
+            className="relative max-w-6xl w-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setViewingCertificate(false)}
+              className="fixed top-6 right-6 text-muted-foreground hover:text-foreground transition-colors bg-background/80 backdrop-blur rounded-full p-2 z-20"
+            >
+              <X size={20} />
+            </button>
+
+            <img
+              src={experiences[selected].certificate}
+              alt="Certificate"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
           </div>
         </div>
       )}

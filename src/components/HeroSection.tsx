@@ -34,17 +34,17 @@ const HeroSection = () => {
         <div className="float-orb w-48 h-48 bg-glow-accent top-[60%] right-[30%]" />
       </div>
 
-      <div className="relative z-10 section-padding max-w-7xl mx-auto w-full">
-        <div className="max-w-2xl">
+      <div className="relative z-10 section-padding max-w-7xl mx-auto w-full flex justify-center">
+        <div className="max-w-2xl text-center">
           <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4 font-light">✦ Introducing</p>
           <h1 ref={headlineRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] opacity-0">
             <span className="text-foreground">Hi, I'm </span>
             <span className="glow-text">Abisha</span>
           </h1>
-          <p ref={subtitleRef} className="text-lg md:text-xl text-muted-foreground mt-6 max-w-lg font-light leading-relaxed opacity-0">
+          <p ref={subtitleRef} className="text-lg md:text-xl text-muted-foreground mt-6 mx-auto font-light leading-relaxed opacity-0">
             AI Engineer & Full Stack Developer crafting intelligent digital experiences through innovative design and cutting-edge technology.
           </p>
-          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 mt-10 opacity-0">
+          <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mt-10 opacity-0">
             <a href="#contact" onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }} className="glow-button inline-flex items-center gap-2 animate-pulse-glow">
               Hire Me
             </a>

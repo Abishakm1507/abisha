@@ -55,7 +55,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <a href="https://ik.imagekit.io/ulajgq5pme/ABISHA%20K%20M.pdf" target="_blank" rel="noopener noreferrer" className="glow-button text-sm !px-6 !py-2">
+            <a href="https://ik.imagekit.io/ulajgq5pme/ABISHA%20K%20M.pdf?updatedAt=1774709749273" target="_blank" rel="noopener noreferrer" className="glow-button text-sm !px-6 !py-2">
               Resume
             </a>
           </div>
