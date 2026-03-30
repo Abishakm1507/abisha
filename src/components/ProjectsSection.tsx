@@ -29,7 +29,7 @@ const projects: Project[] = [
     featured: true,
     accuracy: "97%",
     category: "AI/ML",
-    image: "./src/assets/project-1.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-1.png",
     features: [
       "97% classification accuracy on test dataset",
       "Real-time image upload and prediction",
@@ -50,7 +50,7 @@ const projects: Project[] = [
     repo: "https://github.com/Abishakm1507/RAG",
     featured: true,
     category: "AI/ML",
-    image: "./src/assets/project-2.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-2.png",
     features: [
       "PDF parsing and chunking pipeline",
       "FAISS vector store for fast retrieval",
@@ -71,7 +71,7 @@ const projects: Project[] = [
     repo: "https://github.com/Abishakm1507/ai-fitness-trainer",
     featured: true,
     category: "AI/ML",
-    image: "./src/assets/project-3.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-3.png",
     features: [
       "Real-time pose estimation with MoveNet",
       "Automatic rep counting with accuracy tracking",
@@ -92,7 +92,7 @@ const projects: Project[] = [
     repo: "https://github.com/Abishakm1507/VitalsLens",
     featured: true,
     category: "AI/ML",
-    image: "./src/assets/project-4.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-4.png",
     features: [
       "Contactless heart rate measurement via camera",
       "SpO₂ estimation using rPPG signals",
@@ -111,7 +111,7 @@ const projects: Project[] = [
     tech: ["React", "Flask", "Scikit-learn", "spaCy"],
     repo: "https://github.com/Abishakm1507/AI-Resume-Analyzer",
     category: "AI/ML",
-    image: "./src/assets/project-5.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-5.png",
     features: ["ATS score calculation", "Skill gap analysis", "NLP-powered suggestions"],
   },
   {
@@ -120,7 +120,7 @@ const projects: Project[] = [
     tech: ["React", "Supabase", "Gemini API", "Tailwind"],
     repo: "https://github.com/Abishakm1507/GeminiHire",
     category: "Full-Stack",
-    image: "./src/assets/project-6.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-6.png",
     features: ["Resume parsing and analysis", "AI cover letter generation", "Mock interview preparation"],
   },
   {
@@ -129,7 +129,7 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Gemini API", "Vite"],
     repo: "https://github.com/Abishakm1507/ai-speaking-coach",
     category: "AI/ML",
-    image: "./src/assets/project-7.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-7.png",
   },
   {
     title: "Real-Time Chat App",
@@ -137,7 +137,7 @@ const projects: Project[] = [
     tech: ["React", "Node.js", "PostgreSQL", "Socket.IO"],
     repo: "https://github.com/Abishakm1507/chat_app",
     category: "Full-Stack",
-    image: "./src/assets/project-8.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-8.png",
   },
   {
     title: "AI Metro Scheduler",
@@ -145,7 +145,7 @@ const projects: Project[] = [
     tech: ["FastAPI", "Streamlit", "Random Forest", "Q-Learning"],
     repo: "https://github.com/Abishakm1507/ai-train-induction-planning-and-scheduling",
     category: "AI/ML",
-    image: "./src/assets/project-9.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-9.png",
   },
   {
     title: "YouTube Transcriber",
@@ -153,7 +153,7 @@ const projects: Project[] = [
     tech: ["Python", "Streamlit", "Gemini", "YouTube API"],
     repo: "https://github.com/Abishakm1507/YouTube-Video-Transcriber",
     category: "AI/ML",
-    image: "./src/assets/project-10.png",
+    image: "https://ik.imagekit.io/ulajgq5pme/project-10.png",
   },
 ];
 
