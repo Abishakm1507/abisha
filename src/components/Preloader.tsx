@@ -59,10 +59,10 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
 
       <div ref={nameRef} className="mb-12 text-center opacity-0">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight glow-text">
-          Abisha
+          Abisha K M
         </h1>
         <p className="text-muted-foreground mt-3 text-sm tracking-[0.3em] uppercase">
-          AI Engineer
+          AI Engineer | Full Stack Developer
         </p>
       </div>
 

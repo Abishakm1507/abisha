@@ -38,7 +38,7 @@ const AboutSection = () => {
             <div className="relative group">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 to-secondary/40 blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-primary/30 glow-ring transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
-                <img src={profileImg} alt="Abisha - AI Engineer" className="w-full h-full object-cover object-top" />
+                <img src={profileImg} alt="Abisha K M - AI Engineer" className="w-full h-full object-cover object-top" />
               </div>
             </div>
           </div>
@@ -48,11 +48,11 @@ const AboutSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
               Passionate <span className="glow-text">AI Engineer</span>
             </h2>
-            <p className="text-muted-foreground font-light leading-relaxed mb-4">
+            <p className="text-muted-foreground font-light leading-relaxed mb-4 text-justify">
               I'm a B.Tech student in Artificial Intelligence & Data Science at R.M.K Engineering College, passionate about building intelligent, visually stunning web applications. With hands-on experience in full-stack development and AI/ML, I create experiences that are both beautiful and functional.
             </p>
-            <p className="text-muted-foreground font-light leading-relaxed">
-              From real-time chat apps to CNN-based disease detection systems, I love tackling challenging problems with clean code and innovative solutions. I'm constantly learning, competing in hackathons, and pushing the boundaries of what's possible with technology.
+            <p className="text-muted-foreground font-light leading-relaxed text-justify">
+              I specialize in building AI-powered applications, from machine learning prediction systems to computer vision–based solutions. My work focuses on combining intelligent models with seamless user experiences, turning complex ideas into practical, real-world applications. I continuously explore new technologies, refine my skills, and strive to create impactful solutions that solve meaningful problems.
             </p>
           </div>
         </div>

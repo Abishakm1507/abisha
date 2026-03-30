@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { GithubLogo, LinkedinLogo, Heart, FileArrowDown } from "@phosphor-icons/react";
+import { GithubLogo, LinkedinLogo, Envelope, MapPin } from "@phosphor-icons/react";
+import { FileArrowDown } from "@phosphor-icons/react/dist/ssr/FileArrowDown";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,42 +12,79 @@ const Footer = () => {
   useEffect(() => {
     const footer = footerRef.current;
     if (!footer) return;
-    gsap.fromTo(footer.children, { opacity: 0, y: 40, filter: "blur(6px)" }, {
-      opacity: 1, y: 0, filter: "blur(0px)", stagger: 0.1, duration: 0.8,
-      scrollTrigger: { trigger: footer, start: "top 95%" },
-    });
+
+    gsap.fromTo(
+      footer.children,
+      { opacity: 0, y: 40, filter: "blur(6px)" },
+      {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        stagger: 0.12,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: footer,
+          start: "top 95%",
+        },
+      }
+    );
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative border-t border-border px-6 md:px-12 py-10">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="float-orb w-32 h-32 bg-glow-primary top-0 left-1/4 opacity-10" />
-        <div className="float-orb w-24 h-24 bg-glow-secondary top-4 right-1/3 opacity-10" />
-      </div>
+    <footer
+      ref={footerRef}
+      className="relative border-t border-border px-6 md:px-12 py-10"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-          <span>© 2026 Made with</span>
-          <Heart size={14} weight="fill" className="text-primary" />
-          <span>by <span className="glow-text font-semibold">Abisha</span></span>
+        {/* Left */}
+        <div className="text-sm text-muted-foreground">
+          © 2026 <span className="glow-text font-semibold">Abisha</span>. All rights reserved.
         </div>
 
-        <div className="flex items-center gap-6 flex-wrap justify-center">
-          {["Home", "About", "Skills", "Projects", "Experience", "Achievements", "Contact"].map((link) => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300">{link}</a>
-          ))}
+        {/* Center - Contact Info */}
+        <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-muted-foreground">
+
+          <div className="flex items-center gap-2">
+            <Envelope size={16} />
+            <a
+              href="mailto:abishakm1507@gmail.com"
+              className="hover:text-primary transition-colors"
+            >
+              abishakm1507@gmail.com
+            </a>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <MapPin size={16} />
+            <span>Chennai, India</span>
+          </div>
+
         </div>
 
+        {/* Right - Socials */}
         <div className="flex gap-4">
           <a href="https://ik.imagekit.io/ulajgq5pme/ABISHA%20K%20M.pdf" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300" title="Resume">
             <FileArrowDown size={20} weight="light" />
           </a>
-          <a href="https://github.com/Abishakm1507/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
-            <GithubLogo size={20} weight="light" />
+          <a
+            href="https://github.com/Abishakm1507/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <GithubLogo size={20} />
           </a>
-          <a href="https://www.linkedin.com/in/abisha-k-m-4a4906290/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
-            <LinkedinLogo size={20} weight="light" />
+
+          <a
+            href="https://www.linkedin.com/in/abisha-k-m-4a4906290/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <LinkedinLogo size={20} />
           </a>
+
         </div>
       </div>
     </footer>
