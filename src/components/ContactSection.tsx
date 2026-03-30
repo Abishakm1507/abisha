@@ -46,7 +46,7 @@ const ContactSection = () => {
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Get from EmailJS Dashboard
         {
           name: formData.name,
-          email: formData.email,
+          emailid: formData.email,
           message: formData.message
         }
       );
